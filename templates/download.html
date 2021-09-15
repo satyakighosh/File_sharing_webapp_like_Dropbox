@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title%}
+	MyCloud List of Files
+{% endblock %}
+
+
+{% block content%}
+	<div class="header">
+		{% include 'partials/header.html' %}
+	</div>
+
+	<div class="content text-center">
+
+		<p class="mt-4">
+			Click on the button below to download the file : <b>{{file['originalFileName']}}</b>	
+		</p>
+		<a class="btn btn-success" href="/download_file/{{file['_id']}}" target="_blank">
+			Download
+		</a>
+
+	</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+/***
+  Styles below are only required if you're using <iframe> fallback in
+  addition to HTML5 drag & drop (only working in Firefox/Chrome/Opera 15+).
+ ***/
+
+ /* SOURCE : Inspect element in 'Live demo of filedrop.js  */
+
+/* Essential FileDrop zone element configuration: */
+.fd-zone {
+  position: relative;
+  overflow: hidden;
+  /* The following are not required but create a pretty box: */
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  text-align: center;
+  border: 3px dashed #105075;
+  background-color: white;
+  background: no-repeat right top url(icon.png), repeat left top url(data:image/gif;base64,R0lGODlhDgAOAIAAANjY2P///yH5BAAAAAAALAAAAAAOAA4AAAIVRIynFu3/GJyUyopt3vPy7X1YKFIFADs=);
+  transition: border-color 0.2s;
+}
+
+/* Hides <input type="file"> while simulating "Browse" button: */
+.fd-file {
+  opacity: 0;
+  font-size: 118px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  font-family: sans-serif;
+}
+
+/* Provides visible feedback when user drags a file over the drop zone: */
+.fd-zone.over { border-color: maroon; background: #eee; }
+
+legend {
+    font-weight: bold;
+    padding: 0 0.3em;
+    display: block;
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    border: 0;
+/*    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;*/
+}
+
+fieldset {
+
+  border-style: double;
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 2px;
+  border-style: groove;
+  border-color: threedface;
+  border-image: initial;
+}
+
+
+fieldset.fd-zone p {
+    margin: 0.5em 0;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

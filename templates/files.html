@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title%}
+	MyCloud List of Files
+{% endblock %}
+
+
+{% block content%}
+	<div class="header">
+		{% include 'partials/header.html' %}
+	</div>
+
+	<div class="content">
+		<div class="row mt-5">
+			<div class="col">
+				<p>Uploaded files<p>
+			</div>
+
+			<div class="col text-right">
+				<button 
+					type="button" 
+					class="btn btn-primary"
+					data-bs-toggle="modal" 
+					data-bs-target="#uploadModal">
+					Upload
+			</button>
+			</div>
+		</div>
+
+		{% if error != '' %}
+			<div class="mt-5 alert alert-danger" role="alert">
+				{{ error }}
+			</div>
+		{% endif %}
+
+
+		<div class="mt-4">
+			<table class="table table-bordered">
+				<thead class="table-light">
+				<tr>
+					<th scope="col">File name</th>
+					<th scope="col">Size (in bytes)</th>
+					<th scope="col">Uploaded</th>
+					<th scope="col">&nbsp;</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for f in uploaded_files %}
+				    <tr>
+				    <td>
+				    	{{ f['originalFileName']}}				  
+				    </td>
+				    <td>
+				    	{{ f['fileSize']}}				  
+				    </td>
+				    <td>
+				    	{{ f['createdAt']}}				  
+				    </td>
+				    <td class="text-center">
+				    		<!--data-bs-toggle="modal" 
+							data-bs-target="#shareModal"  THIS IS USING DATA-ATTRIBUTES, BUT BELOW btn-share-file uses jQuery-->
+				    	<button 
+				    		type="button" 
+				    		class="btn btn-info btn-share-file"
+				    		data-file-id="{{ f['_id'] }}"
+				    		data-file-name="{{ f['originalFileName'] }}"
+
+						>
+						Share
+						</button>
+				    	<button type="button" class="btn btn-danger">Delete</button>
+				    </td>				   	
+				   </tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+		{% include 'partials/upload-modal.html'%}
+		{% include 'partials/share-modal.html'%}
+
+	</div>
+
+{% endblock %}
+
+ 
+{% block styles %}
+	<link rel="stylesheet"  href="/static/filedrop.css" />
+{% endblock %}
+
+{% block scripts %}
+	<script src ="/static/files-page.js"></script>
+	<script src ="/static/filedrop-min.js"></script>
+{% endblock %}

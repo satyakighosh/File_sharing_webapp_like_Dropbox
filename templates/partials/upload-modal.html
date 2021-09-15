@@ -1,0 +1,46 @@
+<!-- Modal -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload New File</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Click below to upload a new file or Drag and Drop a file to the below container to upload it.
+
+        <form 
+          class="mt-4" 
+          method="post" 
+          action="/handle_file_upload",
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <input 
+              type="file" 
+              class="form-control-file" 
+              id="fileToUpload"
+              name = "uploadedFile"
+            >
+           
+          </div>
+          <!-- <label class="input-group-text submit btn btn-primary" for="fileToUpload">Upload</label> -->
+
+<!--       THIS IS FOR THE DRAG & DROP UI:
+
+           <fieldset id="zbasic">
+            <legend>Drop a file inside…</legend>
+            <p>Or click here to <em>Browse…</em></p>
+
+          </fieldset> -->
+          
+          <button type="submit" class="btn btn-primary mt-4">
+           Upload File
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
